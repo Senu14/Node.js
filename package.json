@@ -1,0 +1,24 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "En grundlæggende tutorial i NodeJs ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Senu14/Node.js.git"
+  },
+  "author": "Senait Y",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Senu14/Node.js/issues"
+  },
+  "homepage": "https://github.com/Senu14/Node.js#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
