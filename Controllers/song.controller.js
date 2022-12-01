@@ -15,12 +15,22 @@ class SongController {
 	 * @param {Object} res Express Response Object
 	 */
 	list = (req, res) => {
+		let { sortkey, sortdir, limt, attributes } = req.query
+
+		sortkey = (sortkey) ? sortkey: 'id'
+		sortdir = (sortdir) ? sortdir.toUpperCase(): 'ASC'
+		limt = limt ? 'LIMT ${limt}': ''
+		 attributes = attributes ? attributes : 's.id, s.title, a name'
+
+		console.log(sortkey)
 		// Deklarerer SQL
 		const sql = `SELECT s.id, s.title, a.name
                        FROM song s
                        JOIN artist a 
-                       ON s.artist_id = a.id`
-		db.query(sql,(err,result) =>{
+                       ON s.artist_id = a.id
+				   ORDER BY ${sortkey}`
+		
+				   db.query(sql,(err,result) =>{
 
 				   
 			if(err) {
