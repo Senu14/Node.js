@@ -1,5 +1,4 @@
 import http from 'http'
-// res, req are objects containing information about our response.
 
 http.createServer((req, res) => {
 	const value = 10
