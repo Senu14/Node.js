@@ -42,7 +42,40 @@ class UserController {
              res.sedStatus(418)
         }
     }
-      
-}
+    update = async (req, res) => {
+        const { id } = req.params || 0
+        
+        const {firstname, lastname, email, password } = req.body
+
+        // Tjekker felt data
+        if (id && firstname && lastname && email && password) {
+
+            // Opretter record
+            const model = await UserModel.update(req.body, {
+                where:{ id: id },
+                individualHooks: true
+            })
+            // Sender nyt id json object
+            res.json({ 
+                msg:'record update'
+            })
+        }else{
+             res.sendStatus(418)
+        }
+    } 
+    // delete = (req, res) => {
+	// 	const id = (req.params.id || 0)
+    //       const sql = `DELETE FROM user WHERE id = ${ id }`
+	// 	db.query(sql, [id], (err, result) => {
+	// 		if(err) {
+	// 			console.error(err)
+	// 		}else{
+	// 			res.sendStatus(200);
+	// 		}
+    //    })
+    // } 
+    
+} 
+
  
 export default UserController

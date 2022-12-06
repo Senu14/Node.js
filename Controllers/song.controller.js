@@ -95,24 +95,40 @@ class SongController {
 	 * @param {Object} req Express Request Object
 	 * @param {Object} res Express Response Object
 	 */
-	update = (req, res) => {
-		 res.send('Opdater sang')
-		// Form Data kan hentes fra body på request objektet
-		console.log(req.body);
+	 update = (req, res) => {
+		let { title,content, id } = req.body;
 
-	}	
+          const sql = `UPDATE song SET 
+		            title = ? 
+				  content = ?
+		            WHERE id = ?`
+		db.query(sql, [title, content, id], (err, result) => {
+			if(err) {
+				console.error(err)
+			}else{
+				console.log('Song update')
+				res.json(result);
+			}
+		})
+	 }
 
 	/**
 	 * Method delete - sletter record ud fra id (url param)
 	 * @param {Object} req Express Request Object
 	 * @param {Object} res Express Response Object
 	 */
-	delete = (req, res) => {
-		res.send('Sletter sang')
-		// ID kan hentes fra params på request objektet
-		console.log(req.params.id);
-
-	}	
-}
+	 delete = (req, res) => {
+		const id = (req.params.id || 0)
+          const sql = `DELETE FROM song WHERE id = ${ id }`
+		db.query(sql, [id], (err, result) => {
+			if(err) {
+				console.error(err)
+			}else{
+				res.sendStatus(200);
+			}
+		})
+	} 
+	}
+	
 
 export default SongController

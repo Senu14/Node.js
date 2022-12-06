@@ -19,7 +19,7 @@ ArtistRouter.put('/api/artist', (request, response) => {
 	console.log('Artist Route List')
     controller.update(request, response)
 })
-ArtistRouter.delete('/api/artist', (request, response) => {
+ArtistRouter.delete('/api/artist/:id([0-9]*)', (request, response) => {
 	console.log('Artist Route List')
     controller.delete(request, response)
 })
