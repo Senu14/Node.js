@@ -8,8 +8,20 @@ const ArtistRouter = express.Router()
 const controller = new ArtistController
 
 ArtistRouter.get('/api/artist', (request, response) => {
-	console.log('Artist Route List')
+	 console.log('Artist Route List')
 	controller.list(request, response)
+})
+ArtistRouter.post('/api/artist', (request, response) => {
+	console.log('Artist Route List')
+    controller.create(request, response)
+})
+ArtistRouter.put('/api/artist', (request, response) => {
+	console.log('Artist Route List')
+    controller.update(request, response)
+})
+ArtistRouter.delete('/api/artist', (request, response) => {
+	console.log('Artist Route List')
+    controller.delete(request, response)
 })
 
 

@@ -3,6 +3,9 @@ import express from 'express'
 import dotenv from 'dotenv';
 import SongRouter from './Routes/song.router.js'
 import ArtistRouter from './Routes/artist.router.js'
+import UserRouter from './Routes/user.router.js'
+import InitRouter from './Routes/init.router.js'
+
 
 // Kalder dotenv modul
 dotenv.config();
@@ -22,6 +25,8 @@ app.get('/', (req, res) => {
 // Router bundles
 app.use(SongRouter)
 app.use(ArtistRouter)
+app.use(UserRouter)
+app.use(InitRouter)
 
 // Run server
 app.listen(port, () => {
