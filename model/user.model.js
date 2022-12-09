@@ -1,4 +1,4 @@
-import { sequelize } from '../Config/Sequelize.config.js'
+import { sequelize } from '../Config/sequelize.config.js'
 import { DataTypes, Model } from 'sequelize'
 import bcrypt from 'bcrypt'
  
@@ -25,6 +25,10 @@ UserModel.init({
     },
     password: {
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    org_id: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     is_active: {

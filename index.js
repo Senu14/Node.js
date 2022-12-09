@@ -5,6 +5,8 @@ import SongRouter from './Routes/song.router.js'
 import ArtistRouter from './Routes/artist.router.js'
 import UserRouter from './Routes/user.router.js'
 import InitRouter from './Routes/init.router.js'
+import OrgRouter from './Routes/org.router.js'
+import { router as AuthRouter } from './Routes/authenticate.router.js'
 
 
 // Kalder dotenv modul
@@ -27,6 +29,8 @@ app.use(SongRouter)
 app.use(ArtistRouter)
 app.use(UserRouter)
 app.use(InitRouter)
+app.use(OrgRouter)
+app.use(AuthRouter)
 
 // Run server
 app.listen(port, () => {

@@ -1,8 +1,5 @@
 import express from 'express';
-import { sequelize } from '../Config/Sequelize.config.js'
-
-
-
+import { sequelize } from '../Config/sequelize.config.js'
 const InitRouter = express.Router();
 
 /* Modeller der skal medtages i intialiseringen */
@@ -10,6 +7,7 @@ const InitRouter = express.Router();
 // import SongModel from '../Models/song.model.js'
 // import ArtistModel from '../Models/artist.model.js'
 import userModel from '../model/user.model.js'
+// import OrgModel from '../model/org.model.js'
 
 // Init Router
 InitRouter.get('/init', (req, res) => { 
